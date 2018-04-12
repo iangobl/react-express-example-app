@@ -1,0 +1,20 @@
+{
+  "name": "react-express-example-app",
+  "description": "Example app to explore React.js Library",
+  "main": "index.js",
+  "authors": [
+    "Ian Göbl"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^16.1.0"
+  }
+}
