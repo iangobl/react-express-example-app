@@ -1,25 +1,40 @@
 var dispatcher = require('./../dispatcher.js');
 
 function GroceryItemStore() {
-    var items = [];
+    var items = [
+        {
+            name: "Ice Cream"
+        },
+        {
+            name: "Waffles"
+        },
+        {
+            name: "Pancakes",
+            purchased: "true"
+        },
+        {
+            name: "Crisps"
+        },
+    ];
+
     var listeners = [];
 
     function getItems() {
         return items;
     }
 
-    function addGrocerItem(item) {
+    function addGroceryItem(item) {
         items.push(item);
         triggerListeners();
     };
 
     function onChange(listener) {
-        listener.push(listener);
+        listeners.push(listener);
     }
 
     function triggerListeners() {
-        changeListeners.forEach(function (listener) {
-            listener(groceryItems);
+        listeners.forEach(function (listener) {
+            listener(items);
         })
     };
 

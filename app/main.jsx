@@ -1,24 +1,16 @@
 var React = require('react');
 var reactDom = require('react-dom');
-
-console.log("Hello from jsx");
-
 var GroceryItemList = require('./components/GroceryItemList.jsx');
+var groceryItemStore = require('./stores/GroceryItemStore.jsx');
 
-var initial = [
-    {
-        name: "Ice Cream"
-    },
-    {
-        name: "Waffles"
-    },
-    {
-        name: "Pancakes",
-        purchased: "true"
-    },
-    {
-        name: "Crisps"
-    },
-];
+var initial = groceryItemStore.getItems();
+function render() {
+    reactDom.render(<GroceryItemList items={initial}/>, app);
+};+
 
-reactDom.render(<GroceryItemList items={initial}/>, app);
+groceryItemStore.onChange((items) => {
+    initial = items;
+    render();
+})
+
+render();
